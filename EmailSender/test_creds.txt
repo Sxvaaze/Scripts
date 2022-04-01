@@ -6,7 +6,7 @@
 < Your Target's Email Address >
 < Your Email's Subject >
 < Your RELATIVE Text File Path URL >
-< For Following Line, You Can Choose To Include A RELATIVE PATH To Files And They Will Be Added As Attachments To The Email, E.G: >
+< For The Following Lines, You Can Choose To Include A RELATIVE PATH To Files And They Will Be Added As Attachments To The Email, E.G: >
 < 8.jpg | Will search for the file 8.jpg in the same directory as the email.py file >
 < img/14.jpg | Will serach for the file 14.jpg inside the folder img, which is in the same directory as the email.py file >
 < ......... and so on >
