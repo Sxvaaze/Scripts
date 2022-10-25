@@ -45,8 +45,3 @@ if len(args) == 2:
         print(f"  " * 20 + f"The IP {ip_to_search} does not belong to a greek parliament comptuer.")
 else:
     print(" " * 25 + "There was an error whilst trying to run the script. No IP Address was given as a parameter.")
-
-
-
-
-
