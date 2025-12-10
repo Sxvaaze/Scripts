@@ -55,15 +55,19 @@ def add_domain(domains, host_path):
     # Finally, execute operations
     mode = "a" if add else "w"
     with open(host_path, mode) as f:
+        new_entries = []
+        for domain in domains:
+            if "www" in domain:
+                domain = domain.replace("www.", "")
+            if domain not in blocks:
+                new_entries.append(f"127.0.0.1 {domain} www.{domain}\n")
         if add:
             f.write("\n")
             f.write(f"\n{start_marker}") # ΔΕΝ ΞΕΡΩ ΓΙΑΤΙ ΤΟ f.write("\n\n{start_marker}") ΔΕΝ ΕΙΝΑΙ ΤΟ ΙΔΙΟ ΚΑΙ ΑΝΑΓΚΑΣΤΗΚΑ ΝΑ ΤΟ ΚΑΝΩ ΕΤΣΙ
-            for domain in domains:
-                if domain not in blocks:
-                    f.write(f"127.0.0.1 {domain} www.{domain} \n")
+            for domain in new_entries:
+                    f.write(domain)
             f.write(end_marker)
         else:
-            new_entries = [f"127.0.0.1 {d} www.{d}\n" for d in domains if d not in blocks]
             hosts_etc_data[end_marker_idx:end_marker_idx] = new_entries
             f.writelines(hosts_etc_data)
 
